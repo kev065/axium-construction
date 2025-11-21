@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Phone, Mail } from "lucide-react";
@@ -32,20 +33,22 @@ export default function Navbar() {
     return (
         <header
             className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-                    ? "bg-white/90 backdrop-blur-md shadow-md py-2 dark:bg-neutral-900/90"
-                    : "bg-transparent py-4"
+                ? "bg-white/90 backdrop-blur-md shadow-md py-2 dark:bg-neutral-900/90"
+                : "bg-transparent py-4"
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center text-primary-foreground font-bold text-xl group-hover:scale-105 transition-transform">
-                            A
-                        </div>
-                        <span className={`text-2xl font-bold tracking-tight ${scrolled ? "text-foreground" : "text-white mix-blend-difference"}`}>
-                            AXIUM
-                        </span>
+                        <Image
+                            src="/images/axium_logo_2.webp"
+                            alt="Axium Construction"
+                            width={180}
+                            height={60}
+                            className="object-contain h-12 w-auto"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Nav */}
